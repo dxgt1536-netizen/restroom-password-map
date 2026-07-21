@@ -1,0 +1,290 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-header {
+  padding: 12px 16px;
+  background: #03c75a;
+  color: white;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.entry-list {
+  width: 280px;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.entry-list-search {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.entry-list-empty {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.entry-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.entry-item {
+  flex: 1;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-item:hover {
+  background: #f2f2f2;
+}
+
+.entry-name {
+  font-weight: 600;
+}
+
+.entry-memo {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.entry-edit,
+.entry-delete {
+  border: none;
+  background: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.map-area {
+  flex: 1;
+  position: relative;
+}
+
+.map-container,
+.map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.map-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+  padding: 16px;
+  text-align: center;
+}
+
+.map-status-error {
+  color: #c0392b;
+}
+
+.locate-button {
+  position: absolute;
+  right: 12px;
+  bottom: 24px;
+  z-index: 10;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  color: #222;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.locate-button:disabled {
+  color: #999;
+}
+
+.map-my-location-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4285f4;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-box {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  max-width: 320px;
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.search-box button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #03c75a;
+  color: white;
+  cursor: pointer;
+}
+
+.search-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: white;
+  color: #c0392b;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.modal {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.modal input {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.modal-actions button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button[type='submit'] {
+  background: #03c75a;
+  color: white;
+}
+
+.modal-actions button[type='button'] {
+  background: #eee;
+}
+
+/* 지도 위 마커 내용은 React 트리 밖에서 렌더링됨 */
+.map-marker-pill {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  padding: 3px 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+  user-select: text;
+  cursor: pointer;
+}
+
+.map-marker-pill:hover {
+  background: #f2f2f2;
+}
+
+.map-marker-pill--dot {
+  padding: 0;
+  border-radius: 50%;
+  background: #03c75a;
+  border: 1px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .app-body {
+    flex-direction: column;
+  }
+
+  .entry-list {
+    width: 100%;
+    max-height: 35%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
